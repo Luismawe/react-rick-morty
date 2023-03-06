@@ -13,7 +13,40 @@ function NavPage(props) {
     </header>
   );
 }
-
+function StickyFooter({ children }) {
+  let regularDiv = {
+    position: "fixed",
+    bottom: "0",
+    width: "10%",
+    display: "grid",
+    justifyContent: "normal",
+  };
+  let wrapperDiv = {
+    display: "block",
+    height: "40px",
+    width: "100%",
+  };
+  return (
+    <div style={{ height: "30vh" }}>
+      <div style={wrapperDiv} />
+      <a
+        href="https://github.com/Luismawe/react-rick-morty"
+        className="btn btn-sm btn-primary"
+      >
+        Luismawe/react-rick-morty
+      </a>
+      <div style={regularDiv}>
+        <a
+          href="https://github.com/Luismawe"
+          className="btn btn-sm btn-primary"
+        >
+          by Luismawe
+        </a>
+        {children}
+      </div>
+    </div>
+  );
+}
 function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,6 +83,7 @@ function CharacterList() {
         </div>
       )}
       <NavPage page={page} setPage={setPage} />
+      <StickyFooter />
     </div>
   );
 }
