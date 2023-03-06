@@ -13,6 +13,7 @@ function NavPage(props) {
     </header>
   );
 }
+
 function StickyFooter({ children }) {
   let regularDiv = {
     position: "fixed",
